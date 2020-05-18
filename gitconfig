@@ -103,6 +103,8 @@
 
 [user]
 	useConfigOnly = true
+	name = shema102
+	email = sergeishemshur@gmail.com
 
 [http]
 	cookieFile = ~/.gitcookies
