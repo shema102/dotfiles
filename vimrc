@@ -139,6 +139,9 @@ command -nargs=0 Sudow w !sudo tee % >/dev/null
 " Plugin configuration
 "---------------------
 
+" fzf
+set rtp+=~/.fzf
+
 " nerdtree
 nnoremap <Leader>n :NERDTreeToggle<CR>
 nnoremap <Leader>f :NERDTreeFind<CR>
