@@ -35,7 +35,7 @@ ln -sf $dotfiles_dir/zsh ~/.zsh
 ln -sf $dotfiles_dir/zshrc ~/.zshrc
 
 ln -sf $dotfiles_dir/irssi ~/.irssi
-ln -sf $dotfiles_dir/jupyther ~/.jupyther
+ln -sf $dotfiles_dir/jupyter ~/.jupyter
 
 ln -sf $dotfiles_dir/gitconfig ~/.gitconfig
 ln -sf $dotfiles_dir/gitignore_global ~/.gitignore_global
