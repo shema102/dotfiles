@@ -73,41 +73,81 @@ keys = [
 
     # Toggle between different layouts as defined below
     Key([mod], "Tab", lazy.next_layout()),
-    Key([mod, "shift"], "q", lazy.window.kill()),
+    Key([mod, "shift"], "c", lazy.window.kill()),
 
     Key([mod, "shift"], "r", lazy.restart()),
     Key([mod, "shift"], "l", lazy.shutdown()),
     Key([mod], "r", lazy.spawncmd()),
 ]
 
-groups = [Group(i) for i in "asdfuiop"]
+#### GROUPS #####
+group_names = [("WWW", {'layout': 'monadtall'}),
+               ("DEV", {'layout': 'monadtall'}),
+               ("SYS", {'layout': 'monadtall'}),
+               ("DOC", {'layout': 'monadtall'}),
+               ("VBOX", {'layout': 'monadtall'}),
+               ("CHAT", {'layout': 'monadtall'}),
+               ("MUS", {'layout': 'monadtall'}),
+               ("VID", {'layout': 'monadtall'}),
+               ("GFX", {'layout': 'floating'})]
 
-for i in groups:
-    keys.extend([
-        # mod1 + letter of group = switch to group
-        Key([mod], i.name, lazy.group[i.name].toscreen()),
+groups = [Group(name, **kwargs) for name, kwargs in group_names]
 
-        # mod1 + shift + letter of group = switch to & move focused window to group
-        Key([mod, "shift"], i.name, lazy.window.togroup(i.name, switch_group=True)),
-        # Or, use below if you prefer not to switch to that group.
-        # # mod1 + shift + letter of group = move focused window to group
-        # Key([mod, "shift"], i.name, lazy.window.togroup(i.name)),
-    ])
+for i, (name, kwargs) in enumerate(group_names, 1):
+    keys.append(Key([mod], str(i), lazy.group[name].toscreen()))        # Switch to another group
+    keys.append(Key([mod, "shift"], str(i), lazy.window.togroup(name))) # Send current window to another group
 
+# layouts = [
+    # # layout.Max(),
+    # # Try more layouts by unleashing below layouts.
+    # # layout.Bsp(),
+    # # layout.Columns(),
+    # # layout.Matrix(),
+    # layout.MonadTall(name="mndt"),
+    # # layout.MonadWide(),
+    # # layout.RatioTile(),
+    # layout.Tile(name="tile"),
+    # # layout.TreeTab(),
+    # # layout.VerticalTile(),
+    # # layout.Zoomy(),
+    # layout.Stack(num_stacks=2, name="stak"),
+# ]
+##### DEFAULT THEME SETTINGS FOR LAYOUTS #####
+layout_theme = {"border_width": 2,
+                "margin": 6,
+                "border_focus": "e1acff",
+                "border_normal": "1D2330"
+                }
+
+##### THE LAYOUTS #####
 layouts = [
-    # layout.Max(),
-    # Try more layouts by unleashing below layouts.
-    # layout.Bsp(),
-    # layout.Columns(),
-    # layout.Matrix(),
-    layout.MonadTall(),
-    # layout.MonadWide(),
-    # layout.RatioTile(),
-    layout.Tile(),
-    # layout.TreeTab(),
-    # layout.VerticalTile(),
-    # layout.Zoomy(),
+    #layout.MonadWide(**layout_theme),
+    #layout.Bsp(**layout_theme),
+    #layout.Stack(stacks=2, **layout_theme),
+    #layout.Columns(**layout_theme),
+    #layout.RatioTile(**layout_theme),
+    #layout.VerticalTile(**layout_theme),
+    #layout.Matrix(**layout_theme),
+    #layout.Zoomy(**layout_theme),
+    layout.MonadTall(**layout_theme),
+    layout.Max(**layout_theme),
+    layout.Tile(shift_windows=True, **layout_theme),
     layout.Stack(num_stacks=2),
+    layout.TreeTab(
+         font = "Ubuntu",
+         fontsize = 10,
+         sections = ["FIRST", "SECOND"],
+         section_fontsize = 11,
+         bg_color = "141414",
+         active_bg = "90C435",
+         active_fg = "000000",
+         inactive_bg = "384323",
+         inactive_fg = "a0a0a0",
+         padding_y = 5,
+         section_top = 10,
+         panel_width = 320
+         ),
+    layout.Floating(**layout_theme)
 ]
 
 widget_defaults = dict(
@@ -117,12 +157,45 @@ widget_defaults = dict(
 )
 extension_defaults = widget_defaults.copy()
 
+##### COLORS #####
+colors = [["#282a36", "#282a36"], # panel background
+          ["#434758", "#434758"], # background for current screen tab
+          ["#ffffff", "#ffffff"], # font color for group names
+          ["#ff5555", "#ff5555"], # border line color for current tab
+          ["#8d62a9", "#8d62a9"], # border line color for other tab and odd widgets
+          ["#668bd7", "#668bd7"], # color for the even widgets
+          ["#e1acff", "#e1acff"]] # window name
+
 screens = [
     Screen(
         top=bar.Bar(
             [
+                widget.Sep(
+                        linewidth = 0,
+                        padding = 6,
+                        foreground = colors[2],
+                        background = colors[0]
+                        ),
                 widget.CurrentLayout(),
-                widget.GroupBox(),
+                widget.GroupBox(font="Ubuntu Bold",
+                        fontsize = 9,
+                        margin_y = 3,
+                        margin_x = 0,
+                        padding_y = 5,
+                        padding_x = 5,
+                        borderwidth = 3,
+                        active = colors[2],
+                        inactive = colors[2],
+                        rounded = False,
+                        highlight_color = colors[1],
+                        highlight_method = "line",
+                        this_current_screen_border = colors[3],
+                        this_screen_border = colors [4],
+                        other_current_screen_border = colors[0],
+                        other_screen_border = colors[0],
+                        foreground = colors[2],
+                        background = colors[0]
+                        ),
                 widget.Prompt(),
                 widget.WindowName(),
                 widget.Systray(),
