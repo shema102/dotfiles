@@ -30,6 +30,8 @@ from libqtile import layout, bar, widget
 
 from typing import List  # noqa: F401
 
+import os
+
 mod = "mod4"
 
 # class Commands:
@@ -85,10 +87,6 @@ group_names = [("WWW", {'layout': 'monadtall'}),
                ("DEV", {'layout': 'monadtall'}),
                ("SYS", {'layout': 'monadtall'}),
                ("DOC", {'layout': 'monadtall'}),
-               ("VBOX", {'layout': 'monadtall'}),
-               ("CHAT", {'layout': 'monadtall'}),
-               ("MUS", {'layout': 'monadtall'}),
-               ("VID", {'layout': 'monadtall'}),
                ("GFX", {'layout': 'floating'})]
 
 groups = [Group(name, **kwargs) for name, kwargs in group_names]
@@ -97,24 +95,9 @@ for i, (name, kwargs) in enumerate(group_names, 1):
     keys.append(Key([mod], str(i), lazy.group[name].toscreen()))        # Switch to another group
     keys.append(Key([mod, "shift"], str(i), lazy.window.togroup(name))) # Send current window to another group
 
-# layouts = [
-    # # layout.Max(),
-    # # Try more layouts by unleashing below layouts.
-    # # layout.Bsp(),
-    # # layout.Columns(),
-    # # layout.Matrix(),
-    # layout.MonadTall(name="mndt"),
-    # # layout.MonadWide(),
-    # # layout.RatioTile(),
-    # layout.Tile(name="tile"),
-    # # layout.TreeTab(),
-    # # layout.VerticalTile(),
-    # # layout.Zoomy(),
-    # layout.Stack(num_stacks=2, name="stak"),
-# ]
 ##### DEFAULT THEME SETTINGS FOR LAYOUTS #####
 layout_theme = {"border_width": 2,
-                "margin": 6,
+                "margin": 2,
                 "border_focus": "e1acff",
                 "border_normal": "1D2330"
                 }
@@ -176,7 +159,18 @@ screens = [
                         foreground = colors[2],
                         background = colors[0]
                         ),
-                widget.CurrentLayout(),
+                widget.CurrentLayoutIcon(custom_icon_paths=[os.path.expanduser("~/.config/qtile/icons")],
+                        foreground = colors[0],
+                        background = colors[4],
+                        padding = 0,
+                        scale=0.7
+                        ),
+                widget.Sep(
+                        linewidth = 0,
+                        padding = 6,
+                        foreground = colors[2],
+                        background = colors[0]
+                        ),
                 widget.GroupBox(font="Ubuntu Bold",
                         fontsize = 9,
                         margin_y = 3,
@@ -196,14 +190,92 @@ screens = [
                         foreground = colors[2],
                         background = colors[0]
                         ),
-                widget.Prompt(),
-                widget.WindowName(),
-                widget.Systray(),
-                widget.TextBox("|"),
-                widget.Battery(),
-                widget.TextBox("|"),
-                widget.Clock(format='%H:%M %d-%m-%y'),
-                widget.QuickExit(),
+                # widget.Prompt(),
+                # widget.WindowName(),
+                widget.Spacer(
+                        background = colors[0]
+                        ),
+                widget.Sep(
+                        linewidth = 0,
+                        padding = 6,
+                        foreground = colors[2],
+                        background = colors[0]
+                        ),
+                widget.Memory(
+                        font="Ubuntu Bold",
+                        margin_y = 3,
+                        margin_x = 0,
+                        padding_y = 5,
+                        padding_x = 5,
+                        borderwidth = 3,
+                        ),
+                widget.Sep(
+                        linewidth = 0,
+                        padding = 6,
+                        foreground = colors[2],
+                        background = colors[0]
+                        ),
+                widget.Wlan(interface="wlp3s0",
+                        font="Ubuntu Bold",
+                        margin_y = 3,
+                        margin_x = 0,
+                        padding_y = 5,
+                        padding_x = 5,
+                        borderwidth = 3,
+                        ),
+                widget.Sep(
+                        linewidth = 0,
+                        padding = 6,
+                        foreground = colors[2],
+                        background = colors[0]
+                        ),
+                widget.Battery(
+                        font="Ubuntu Bold",
+                        margin_y = 3,
+                        margin_x = 0,
+                        padding_y = 5,
+                        padding_x = 5,
+                        borderwidth = 3,
+
+                        ),
+                widget.Sep(
+                        linewidth = 0,
+                        padding = 6,
+                        foreground = colors[2],
+                        background = colors[0]
+                        ),
+                widget.KeyboardLayout(
+                        font="Ubuntu Bold",
+                        margin_y = 3,
+                        margin_x = 0,
+                        padding_y = 5,
+                        padding_x = 5,
+                        borderwidth = 3,
+                        ),
+                widget.Sep(
+                        linewidth = 0,
+                        padding = 6,
+                        foreground = colors[2],
+                        background = colors[0]
+                        ),
+                widget.Clock(format='%H:%M %d-%m-%y',
+                        font="Ubuntu Bold",
+                        margin_y = 3,
+                        margin_x = 0,
+                        padding_y = 5,
+                        padding_x = 5,
+                        borderwidth = 3,
+                        ),
+                widget.Sep(
+                        linewidth = 0,
+                        padding = 6,
+                        foreground = colors[2],
+                        background = colors[0]
+                        ),
+                widget.Systray(
+                        background=colors[0],
+                        padding = 5
+                        ),
             ],
             24,
         ),
