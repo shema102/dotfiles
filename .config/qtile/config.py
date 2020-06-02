@@ -195,42 +195,51 @@ screens = [
                 widget.Spacer(
                         background = colors[0]
                         ),
-                widget.Sep(
-                        linewidth = 0,
-                        padding = 6,
-                        foreground = colors[2],
-                        background = colors[0]
+                widget.TextBox(
+                        text='◀',
+                        foreground = colors[4],
+                        background = colors[0],
+                        padding=0,
+                        fontsize=44
                         ),
                 widget.Memory(
                         font="Ubuntu Bold",
+                        foreground=colors[2],
+                        background=colors[4],
                         margin_y = 3,
                         margin_x = 0,
                         padding_y = 5,
                         padding_x = 5,
                         borderwidth = 3,
                         ),
-                widget.Sep(
-                        linewidth = 0,
-                        padding = 6,
-                        foreground = colors[2],
-                        background = colors[0]
+                widget.TextBox(
+                        text='◀',
+                        foreground = colors[5],
+                        background = colors[4],
+                        padding=0,
+                        fontsize=44
                         ),
                 widget.Wlan(interface="wlp3s0",
                         font="Ubuntu Bold",
+                        foreground=colors[2],
+                        background=colors[5],
                         margin_y = 3,
                         margin_x = 0,
                         padding_y = 5,
                         padding_x = 5,
                         borderwidth = 3,
                         ),
-                widget.Sep(
-                        linewidth = 0,
-                        padding = 6,
-                        foreground = colors[2],
-                        background = colors[0]
+                widget.TextBox(
+                        text='◀',
+                        foreground = colors[4],
+                        background = colors[5],
+                        padding=0,
+                        fontsize=44
                         ),
                 widget.Battery(
                         font="Ubuntu Bold",
+                        foreground=colors[2],
+                        background=colors[4],
                         margin_y = 3,
                         margin_x = 0,
                         padding_y = 5,
@@ -238,14 +247,18 @@ screens = [
                         borderwidth = 3,
 
                         ),
-                widget.Sep(
-                        linewidth = 0,
-                        padding = 6,
-                        foreground = colors[2],
-                        background = colors[0]
+                widget.TextBox(
+                        text='◀',
+                        foreground = colors[5],
+                        background = colors[4],
+                        padding=0,
+                        fontsize=44
                         ),
                 widget.KeyboardLayout(
                         font="Ubuntu Bold",
+                        fontsize=14,
+                        foreground=colors[2],
+                        background=colors[5],
                         margin_y = 3,
                         margin_x = 0,
                         padding_y = 5,
@@ -256,10 +269,19 @@ screens = [
                         linewidth = 0,
                         padding = 6,
                         foreground = colors[2],
-                        background = colors[0]
+                        background = colors[5]
+                        ),
+                widget.TextBox(
+                        text='◀',
+                        foreground = colors[4],
+                        background = colors[5],
+                        padding=0,
+                        fontsize=44
                         ),
                 widget.Clock(format='%H:%M %d-%m-%y',
                         font="Ubuntu Bold",
+                        foreground=colors[2],
+                        background=colors[4],
                         margin_y = 3,
                         margin_x = 0,
                         padding_y = 5,
@@ -269,12 +291,12 @@ screens = [
                 widget.Sep(
                         linewidth = 0,
                         padding = 6,
-                        foreground = colors[2],
-                        background = colors[0]
+                        foreground = colors[4],
+                        background = colors[4]
                         ),
                 widget.Systray(
                         background=colors[0],
-                        padding = 5
+                        padding =5
                         ),
             ],
             24,
@@ -294,7 +316,7 @@ mouse = [
 dgroups_key_binder = None
 dgroups_app_rules = []  # type: List
 main = None
-follow_mouse_focus = True
+follow_mouse_focus = False
 bring_front_click = False
 cursor_warp = False
 floating_layout = layout.Floating(float_rules=[
