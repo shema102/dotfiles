@@ -44,3 +44,5 @@ fi
 
 # fzf 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+export PIP_REQUIRE_VIRTUALENV=false
