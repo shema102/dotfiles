@@ -30,6 +30,8 @@ call vundle#begin()		" required, all plugins must appear after this line.
 "{{ Productivity }}
     Plugin 'vimwiki/vimwiki'                             " VimWiki 
     Plugin 'jreybert/vimagit'                            " Magit-like plugin for vim
+    Plugin 'sjl/gundo.vim'                               " Undo history
+    Plugin 'preservim/nerdcommenter'                     " Nerdcommenter
 "{{ Tim Pope Plugins }}
     Plugin 'tpope/vim-surround'                          " Change surrounding marks
 "{{ Syntax Highlighting and Colors }}
@@ -41,6 +43,8 @@ call vundle#begin()		" required, all plugins must appear after this line.
     Plugin 'junegunn/goyo.vim'                           " Distraction-free viewing
     Plugin 'junegunn/limelight.vim'                      " Hyperfocus on a range
     Plugin 'junegunn/vim-emoji'                          " Vim needs emojis!
+"{{ Language support }}
+    Plugin 'rust-lang/rust.vim'
 
 call vundle#end()		" required, all plugins must appear before this line.
 
@@ -193,6 +197,11 @@ map <Leader>tt :vnew term://zsh<CR>
 " => Mouse Scrolling
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set mouse=nicr
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Gundo settings
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+nnoremap <F5> :GundoToggle<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Splits and Tabbed Files
