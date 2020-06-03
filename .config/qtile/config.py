@@ -39,7 +39,7 @@ mod = "mod4"
     # dmenu_session = "dmenu_session"
     # dmenu_run = "dmenu_run"
     # dmenu_window = "dmenu-qtile-windowlist.py"
-    
+
 keys = [
     # Switch between windows in current stack pane
     Key([mod], "k", lazy.layout.down()),
@@ -83,7 +83,7 @@ keys = [
 ]
 
 #### GROUPS #####
-group_names = [("WWW", {'layout': 'monadtall'}),
+group_names = [("WWW", {'layout': 'max'}),
                ("DEV", {'layout': 'monadtall'}),
                ("SYS", {'layout': 'monadtall'}),
                ("DOC", {'layout': 'monadtall'}),
