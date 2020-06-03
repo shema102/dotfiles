@@ -3,7 +3,7 @@ alias ls='ls --color=auto'
 alias grep='grep --color'
 
 # vim alises
-alias v='vim'
+alias v='nvim'
 
 # ls aliases
 alias ll='ls -lah'
@@ -16,6 +16,7 @@ alias mv='mv -i'
 
 # git related aliases
 alias gag='git exec ag'
+alias gs='git status'
 
 # Update dotfiles
 dfu() {
