@@ -9,3 +9,6 @@ export PYTHONSTARTUP=$HOME/.pythonrc
 
 # Vagrant
 VAGRANT_DISABLE_VBOXSYMLINKCREATE=1
+
+# Default editor to nvim
+export EDITOR=nvim
