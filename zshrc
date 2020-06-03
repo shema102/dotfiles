@@ -99,7 +99,11 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-#
+
+
+# External plugins
+source ~/.zsh/plugins_before.zsh
+
 # External settings
 source ~/.shell/external.sh
 
