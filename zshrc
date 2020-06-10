@@ -116,3 +116,6 @@ source ~/.shell/aliases.sh
 
 # External plugins
 source ~/.zsh/plugins_after.zsh
+
+# Cd to home directory
+cd ~
