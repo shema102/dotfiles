@@ -70,6 +70,7 @@ ZSH_THEME="muse"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git
     archlinux
+    vi-mode
     )
 
 source $ZSH/oh-my-zsh.sh
