@@ -215,11 +215,11 @@ screens = [
                         background = colors[0]
                         ),
                 widget.TextBox(
-                        text='◀',
+                        text='',
                         foreground = colors[4],
                         background = colors[0],
-                        padding=0,
-                        fontsize=44
+                        padding=-14,
+                        fontsize=69
                         ),
                 widget.Memory(
                         font="Ubuntu Bold",
@@ -232,11 +232,11 @@ screens = [
                         borderwidth = 3,
                         ),
                 widget.TextBox(
-                        text='◀',
+                        text='',
                         foreground = colors[5],
                         background = colors[4],
-                        padding=0,
-                        fontsize=44
+                        padding=-14,
+                        fontsize=69
                         ),
                 widget.Wlan(interface="wlp3s0",
                         font="Ubuntu Bold",
@@ -249,11 +249,11 @@ screens = [
                         borderwidth = 3,
                         ),
                 widget.TextBox(
-                        text='◀',
+                        text='',
                         foreground = colors[4],
                         background = colors[5],
-                        padding=0,
-                        fontsize=44
+                        padding=-14,
+                        fontsize=69
                         ),
                 widget.Battery(
                         font="Ubuntu Bold",
@@ -267,13 +267,14 @@ screens = [
 
                         ),
                 widget.TextBox(
-                        text='◀',
+                        text='',
                         foreground = colors[5],
                         background = colors[4],
-                        padding=0,
-                        fontsize=44
+                        padding=-14,
+                        fontsize=69
                         ),
                 widget.KeyboardLayout(
+                        configured_keyboards = ["US", "RU", "UA"],
                         font="Ubuntu Bold",
                         fontsize=14,
                         foreground=colors[2],
@@ -291,11 +292,11 @@ screens = [
                         background = colors[5]
                         ),
                 widget.TextBox(
-                        text='◀',
+                        text='',
                         foreground = colors[4],
                         background = colors[5],
-                        padding=0,
-                        fontsize=44
+                        padding=-14,
+                        fontsize=69
                         ),
                 widget.Clock(format='%H:%M %d-%m-%y',
                         font="Ubuntu Bold",
@@ -307,15 +308,29 @@ screens = [
                         padding_x = 5,
                         borderwidth = 3,
                         ),
+                widget.TextBox(
+                        text='',
+                        foreground = colors[5],
+                        background = colors[4],
+                        padding=-14,
+                        fontsize=69
+                        ),
+                widget.Systray(
+                        font="Ubuntu Bold",
+                        fontsize=14,
+                        foreground=colors[2],
+                        background=colors[5],
+                        margin_y = 3,
+                        margin_x = 0,
+                        padding_y = 5,
+                        padding_x = 5,
+                        borderwidth = 3,
+                        ),
                 widget.Sep(
                         linewidth = 0,
                         padding = 6,
-                        foreground = colors[4],
-                        background = colors[4]
-                        ),
-                widget.Systray(
-                        background=colors[0],
-                        padding =5
+                        foreground = colors[5],
+                        background = colors[5]
                         ),
             ],
             24,
