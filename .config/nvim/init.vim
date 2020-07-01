@@ -45,6 +45,7 @@ call vundle#begin()		" required, all plugins must appear after this line.
     Plugin 'junegunn/vim-emoji'                          " Vim needs emojis!
 "{{ Language support }}
     Plugin 'rust-lang/rust.vim'
+    Plugin 'neovimhaskell/haskell-vim'
 
 call vundle#end()		" required, all plugins must appear before this line.
 
