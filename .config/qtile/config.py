@@ -140,6 +140,10 @@ widget_defaults = dict(
 )
 extension_defaults = widget_defaults.copy()
 
+# shutdown script
+def shutdown(qtile):
+    qtile.cmd_spawn('poweroff')
+
 ##### COLORS #####
 colors = [["#282a36", "#282a36"], # panel background
           ["#434758", "#434758"], # background for current screen tab
@@ -159,6 +163,21 @@ screens = [
                         foreground = colors[2],
                         background = colors[0]
                         ),
+                widget.TextBox(
+                        text = "⏻",
+                        fontsize = 16,
+                        linewidth = 0,
+                        padding = 6,
+                        foreground = colors[2],
+                        background = colors[0],
+                        mouse_callbacks = {"Button1": shutdown}
+                        ),
+                widget.Sep(
+                        linewidth = 0,
+                        padding = 6,
+                        foreground = colors[2],
+                        background = colors[0]
+                        ),
                 widget.CurrentLayoutIcon(custom_icon_paths=[os.path.expanduser("~/.config/qtile/icons")],
                         foreground = colors[0],
                         background = colors[4],
@@ -172,7 +191,7 @@ screens = [
                         background = colors[0]
                         ),
                 widget.GroupBox(font="Ubuntu Bold",
-                        fontsize = 9,
+                        fontsize = 10,
                         margin_y = 3,
                         margin_x = 0,
                         padding_y = 5,
