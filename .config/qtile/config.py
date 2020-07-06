@@ -63,6 +63,7 @@ keys = [
     Key([mod], "Return", lazy.spawn("sakura")),
     Key([mod], "e", lazy.spawn("rofi -show drun")),
     Key([mod], "w", lazy.spawn("chromium")),
+    Key([mod], "q", lazy.spawn("code")),
 
     # backlight control
     Key([], "XF86MonBrightnessUp", lazy.spawn("brightnessctl set +4%")),
