@@ -61,7 +61,7 @@ keys = [
     # multiple stack panes
     Key([mod, "shift"], "Return", lazy.layout.toggle_split()),
     Key([mod], "Return", lazy.spawn("sakura")),
-    Key([mod], "e", lazy.spawn("rofi -show drun")),
+    Key([mod], "e", lazy.spawn("rofi -combi-modi window,drun,ssh -theme solarized -font "hack 10" -show combi -icon-theme "Papirus" -show-icons")),
     Key([mod], "w", lazy.spawn("chromium")),
     Key([mod], "q", lazy.spawn("code")),
 
