@@ -12,3 +12,7 @@ VAGRANT_DISABLE_VBOXSYMLINKCREATE=1
 
 # Default editor to nvim
 export EDITOR=nvim
+
+# Export npm folder
+export PATH="$PATH:$HOME/.npm-global/bin"
+
