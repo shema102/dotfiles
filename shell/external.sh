@@ -16,3 +16,5 @@ export EDITOR=nvim
 # Export npm folder
 export PATH="$PATH:$HOME/.npm-global/bin"
 
+# Export local folder
+export PATH="$PATH:$HOME/.local/bin"
