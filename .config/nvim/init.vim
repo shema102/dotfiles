@@ -32,7 +32,7 @@ call vundle#begin()		" required, all plugins must appear after this line.
     Plugin 'jreybert/vimagit'                            " Magit-like plugin for vim
     Plugin 'sjl/gundo.vim'                               " Undo history
     Plugin 'preservim/nerdcommenter'                     " Nerdcommenter
-    Plugin 'neoclide/coc.nvim', {'branch': 'release'}    " Coc auto suggestions
+    Plugin 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' } " Coc auto suggestions
 "{{ Tim Pope Plugins }}
     Plugin 'tpope/vim-surround'                          " Change surrounding marks
 "{{ Syntax Highlighting and Colors }}
