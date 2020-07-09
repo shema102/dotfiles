@@ -18,3 +18,8 @@ export PATH="$PATH:$HOME/.npm-global/bin"
 
 # Export local folder
 export PATH="$PATH:$HOME/.local/bin"
+
+# Virtualenvwraper
+export WORKON_HOME=$HOME/.virtualenvs
+export PROJECT_HOME=$HOME/Devel
+source $HOME/.local/bin/virtualenvwrapper.sh
