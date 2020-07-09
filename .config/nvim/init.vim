@@ -75,6 +75,7 @@ set noswapfile                  " No swap
 set t_Co=256                    " Set if term supports 256 colors.
 set number relativenumber       " Display line numbers
 set clipboard=unnamedplus       " Copy/paste between vim and other programs.
+let g:python3_host_prog='/usr/bin/python3' " Path to python3 executable
 syntax enable
 let g:rehash256 = 1
 
