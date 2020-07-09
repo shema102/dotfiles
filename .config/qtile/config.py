@@ -275,7 +275,7 @@ screens = [
                         fontsize=69
                         ),
                 widget.KeyboardLayout(
-                        configured_keyboards = ["US", "RU", "UA"],
+                        configured_keyboards = ["us", "ru", "ua"],
                         font="Ubuntu Bold",
                         fontsize=14,
                         foreground=colors[2],
