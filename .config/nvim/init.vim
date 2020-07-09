@@ -36,10 +36,9 @@ call vundle#begin()		" required, all plugins must appear after this line.
 "{{ Tim Pope Plugins }}
     Plugin 'tpope/vim-surround'                          " Change surrounding marks
 "{{ Syntax Highlighting and Colors }}
-    Plugin 'PotatoesMaster/i3-vim-syntax'                " i3 config highlighting
     Plugin 'kovetskiy/sxhkd-vim'                         " sxhkd highlighting
-    Plugin 'vim-python/python-syntax'                    " Python highlighting
     Plugin 'ap/vim-css-color'                            " Color previews for CSS
+    Plugin 'sheerun/vim-polyglot'                        " Syntax highlighting
 "{{ Junegunn Choi Plugins }}
     Plugin 'junegunn/goyo.vim'                           " Distraction-free viewing
     Plugin 'junegunn/limelight.vim'                      " Hyperfocus on a range
@@ -234,7 +233,7 @@ set fillchars+=vert:\
 " => Other Stuff
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Use deoplete.
- let g:deoplete#enable_at_startup = 1
+let g:deoplete#enable_at_startup = 1
 
 let g:python_highlight_all = 1
 
