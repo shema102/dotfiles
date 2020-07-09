@@ -225,6 +225,8 @@ let g:deoplete#enable_at_startup = 1
 
 let g:python_highlight_all = 1
 
+let g:gundo_prefer_python3 = 1
+
 au! BufRead,BufWrite,BufWritePost,BufNewFile *.org 
 au BufEnter *.org            call org#SetOrgFileType()
 
