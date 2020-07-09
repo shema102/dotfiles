@@ -1,65 +1,53 @@
-"  ____ _____ 
-" |  _ \_   _|  Derek Taylor (DistroTube)
-" | | | || |    http://www.youtube.com/c/DistroTube
-" | |_| || |    http://www.gitlab.com/dwt1/
-" |____/ |_|
-"        
-" A customized init.vim for neovim (https://neovim.io/)     
-
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Vundle For Managing Plugins
+" => Dein For Managing Plugins
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
+" set the runtime path to include dein and initialize
+set rtp+=~/.vim/dein/repos/github.com/Shougo/dein.vim
 
-call vundle#begin()		" required, all plugins must appear after this line.
+if dein#load_state('~/.vim/dein')
+    call dein#begin('~/.vim/dein')
 "{{ The Basics }}
-    Plugin 'gmarik/Vundle.vim'                           " Vundle
-    Plugin 'itchyny/lightline.vim'                       " Lightline statusbar
-    Plugin 'suan/vim-instant-markdown', {'rtp': 'after'} " Markdown Preview
-    Plugin 'frazrepo/vim-rainbow'
+    call dein#add('gmarik/Vundle.vim')                           " Vundle
+    call dein#add('itchyny/lightline.vim')                       " Lightline statusbar
+    call dein#add('suan/vim-instant-markdown', {'rtp': 'after'}) " Markdown Preview
+    call dein#add('frazrepo/vim-rainbow')
 "{{ File management }}
-    Plugin 'vifm/vifm.vim'                               " Vifm
-    Plugin 'scrooloose/nerdtree'                         " Nerdtree
-    Plugin 'tiagofumo/vim-nerdtree-syntax-highlight'     " Highlighting Nerdtree
-    Plugin 'ryanoasis/vim-devicons'                      " Icons for Nerdtree
+    call dein#add('vifm/vifm.vim')                               " Vifm
+    call dein#add('scrooloose/nerdtree')                         " Nerdtree
+    call dein#add('tiagofumo/vim-nerdtree-syntax-highlight')     " Highlighting Nerdtree
+    call dein#add('ryanoasis/vim-devicons')                      " Icons for Nerdtree
 "{{ Productivity }}
-    Plugin 'vimwiki/vimwiki'                             " VimWiki 
-    Plugin 'jreybert/vimagit'                            " Magit-like plugin for vim
-    Plugin 'sjl/gundo.vim'                               " Undo history
-    Plugin 'preservim/nerdcommenter'                     " Nerdcommenter
-    Plugin 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' } " Coc auto suggestions
+    call dein#add('vimwiki/vimwiki')                             " VimWiki 
+    call dein#add('jreybert/vimagit')                            " Magit-like plugin for vim
+    call dein#add('sjl/gundo.vim')                               " Undo history
+    call dein#add('preservim/nerdcommenter')                     " Nerdcommenter
+    call dein#add('Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }) " Deoplete auto suggestions
 "{{ Tim Pope Plugins }}
-    Plugin 'tpope/vim-surround'                          " Change surrounding marks
+    call dein#add('tpope/vim-surround')                          " Change surrounding marks
 "{{ Syntax Highlighting and Colors }}
-    Plugin 'kovetskiy/sxhkd-vim'                         " sxhkd highlighting
-    Plugin 'ap/vim-css-color'                            " Color previews for CSS
-    Plugin 'sheerun/vim-polyglot'                        " Syntax highlighting
+    call dein#add('kovetskiy/sxhkd-vim')                         " sxhkd highlighting
+    call dein#add('ap/vim-css-color')                            " Color previews for CSS
+    call dein#add('sheerun/vim-polyglot')                        " Syntax highlighting
 "{{ Junegunn Choi Plugins }}
-    Plugin 'junegunn/goyo.vim'                           " Distraction-free viewing
-    Plugin 'junegunn/limelight.vim'                      " Hyperfocus on a range
-    Plugin 'junegunn/vim-emoji'                          " Vim needs emojis!
+    call dein#add('junegunn/goyo.vim')                           " Distraction-free viewing
+    call dein#add('junegunn/limelight.vim')                      " Hyperfocus on a range
+    call dein#add('junegunn/vim-emoji')                          " Vim needs emojis!
 "{{ Language support }}
-    Plugin 'rust-lang/rust.vim'
-    Plugin 'neovimhaskell/haskell-vim'
+    call dein#add('rust-lang/rust.vim')
+    call dein#add('neovimhaskell/haskell-vim')
 
-call vundle#end()		" required, all plugins must appear before this line.
+    call dein#end()
+    call dein#save_state()
+endif
 
 filetype plugin indent on    " required
 " To ignore plugin indent changes, instead use:
 " filetype plugin on
-
-" Brief help
-" :PluginList       - lists configured plugins
-" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
-" :PluginSearch foo - searches for foo; append `!` to refresh local cache
-" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
-
-" see :h vundle for more details or wiki for FAQ
+"
 " Put your non-Plugin stuff after this line
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
