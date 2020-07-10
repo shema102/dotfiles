@@ -25,7 +25,11 @@ if dein#load_state('~/.vim/dein')
     call dein#add('jreybert/vimagit')                            " Magit-like plugin for vim
     call dein#add('sjl/gundo.vim')                               " Undo history
     call dein#add('preservim/nerdcommenter')                     " Nerdcommenter
-    call dein#add('Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }) " Deoplete auto suggestions
+    call dein#add('Shougo/deoplete.nvim')                        " Deoplete auto suggestions
+        if !has('nvim')                                          " Install plugins required by deoplete
+          call dein#add('roxma/nvim-yarp')
+          call dein#add('roxma/vim-hug-neovim-rpc')
+        endif
     call dein#add('mattn/emmet-vim')                             " HTML Emmet plugin
 "{{ Tim Pope Plugins }}
     call dein#add('tpope/vim-surround')                          " Change surrounding marks
@@ -94,6 +98,11 @@ set expandtab                   " Use spaces instead of tabs.
 set smarttab                    " Be smart using tabs ;)
 set shiftwidth=4                " One tab == four spaces.
 set tabstop=4                   " One tab == four spaces.
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Deoplete
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:deoplete#enable_at_startup = 1
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => NERDTree
@@ -221,9 +230,6 @@ set fillchars+=vert:\
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Other Stuff
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Use deoplete.
-let g:deoplete#enable_at_startup = 1
-
 let g:python_highlight_all = 1
 
 let g:gundo_prefer_python3 = 1
