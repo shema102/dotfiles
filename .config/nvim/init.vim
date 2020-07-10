@@ -26,10 +26,6 @@ if dein#load_state('~/.vim/dein')
     call dein#add('sjl/gundo.vim')                               " Undo history
     call dein#add('preservim/nerdcommenter')                     " Nerdcommenter
     call dein#add('Shougo/deoplete.nvim')                        " Deoplete auto suggestions
-        if !has('nvim')                                          " Install plugins required by deoplete
-          call dein#add('roxma/nvim-yarp')
-          call dein#add('roxma/vim-hug-neovim-rpc')
-        endif
     call dein#add('mattn/emmet-vim')                             " HTML Emmet plugin
 "{{ Tim Pope Plugins }}
     call dein#add('tpope/vim-surround')                          " Change surrounding marks
