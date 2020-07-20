@@ -26,3 +26,4 @@ source $HOME/.local/bin/virtualenvwrapper.sh
 
 # Export Android Studio folder
 export PATH="$PATH:/opt/android-studio/bin"
+export ANDROID_SDK_ROOT="$HOME/Android/Sdk"
