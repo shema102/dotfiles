@@ -23,3 +23,6 @@ export PATH="$PATH:$HOME/.local/bin"
 export WORKON_HOME=$HOME/.virtualenvs
 export PROJECT_HOME=$HOME/Devel
 source $HOME/.local/bin/virtualenvwrapper.sh
+
+# Export Android Studio folder
+export PATH="$PATH:/opt/android-studio/bin"
