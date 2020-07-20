@@ -61,9 +61,11 @@ keys = [
     # multiple stack panes
     Key([mod, "shift"], "Return", lazy.layout.toggle_split()),
     Key([mod], "Return", lazy.spawn("sakura")),
-    Key([mod], "e", lazy.spawn('rofi -combi-modi window,drun,ssh -theme solarized -font "hack 10" -show combi -icon-theme "Papirus" -show-icons')),
+    Key([mod], "e", lazy.spawn('''rofi -combi-modi 
+                               window,drun,ssh -theme solarized 
+                               -font "hack 10" -show combi 
+                               -icon-theme "Papirus" -show-icons''')),
     Key([mod], "w", lazy.spawn("chromium")),
-    Key([mod], "q", lazy.spawn("code")),
 
     # backlight control
     Key([], "XF86MonBrightnessUp", lazy.spawn("brightnessctl set +4%")),
@@ -81,6 +83,29 @@ keys = [
     Key([mod, "shift"], "r", lazy.restart()),
     Key([mod, "shift"], "l", lazy.shutdown()),
     Key([mod], "r", lazy.spawncmd()),
+
+    Key(
+         [mod, "shift"], "k",
+         lazy.layout.shuffle_down(),
+         desc='Move windows down in current stack'
+         ),
+     Key(
+         [mod, "shift"], "j",
+         lazy.layout.shuffle_up(),
+         desc='Move windows up in current stack'
+         ),
+     Key(
+         [mod, "shift"], "f",
+         lazy.window.toggle_floating(),
+         desc='toggle floating'
+         ),
+     ### Stack controls
+     Key(
+         [mod, "shift"], "space",
+         lazy.layout.rotate(),
+         lazy.layout.flip(),
+         desc='Switch which side main pane occupies (XmonadTall)'
+         ),
 ]
 
 #### GROUPS #####
@@ -117,20 +142,6 @@ layouts = [
     layout.Max(**layout_theme),
     layout.Tile(shift_windows=True, **layout_theme),
     layout.Stack(num_stacks=2),
-    layout.TreeTab(
-         font = "Ubuntu",
-         fontsize = 10,
-         sections = ["FIRST", "SECOND"],
-         section_fontsize = 11,
-         bg_color = "141414",
-         active_bg = "90C435",
-         active_fg = "000000",
-         inactive_bg = "384323",
-         inactive_fg = "a0a0a0",
-         padding_y = 5,
-         section_top = 10,
-         panel_width = 320
-         ),
     layout.Floating(**layout_theme)
 ]
 
