@@ -22,7 +22,9 @@ export PATH="$PATH:$HOME/.local/bin"
 # Virtualenvwraper
 export WORKON_HOME=$HOME/.virtualenvs
 export PROJECT_HOME=$HOME/Devel
-source $HOME/.local/bin/virtualenvwrapper.sh
+export VIRTUALENVWRAPPER_PYTHON=$(which python3)
+export VIRTUALENVWRAPPER_VIRTUALENV=$(which virtualenv)
+source $(which virtualenvwrapper.sh)
 
 # Export Android Studio folder
 export PATH="$PATH:/opt/android-studio/bin"
