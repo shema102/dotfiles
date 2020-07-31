@@ -1,6 +1,9 @@
 # pip should only run if there is a virtualenv currently activated
 #export PIP_REQUIRE_VIRTUALENV=true
 
+#Explicitly specify locale
+export LC_ALL=en_US.UTF-8
+
 # Cache pip-installed packages to avoid re-downloading
 export PIP_DOWNLOAD_CACHE=$HOME/.pip/cache
 
@@ -28,4 +31,5 @@ source $(which virtualenvwrapper.sh)
 
 # Export Android Studio folder
 export PATH="$PATH:/opt/android-studio/bin"
+export PATH="$PATH:$HOME/Android/Sdk/platform-tools"
 export ANDROID_SDK_ROOT="$HOME/Android/Sdk"
