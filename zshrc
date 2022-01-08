@@ -119,3 +119,5 @@ source ~/.zsh/plugins_after.zsh
 
 # Cd to home directory
 cd ~
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

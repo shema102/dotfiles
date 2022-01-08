@@ -40,6 +40,14 @@ rm installer.sh
 echo "Installed dein.vim"
 
 #==============
+# Install vim-plug for vim
+#==============
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
+echo "Installed plug.vim. To update plugins run :PlugUpgrade"
+
+#==============
 # Install oh-my-zsh
 #==============
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
