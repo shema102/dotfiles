@@ -1,45 +1,49 @@
-# script for creating symbolic links to dotfiles
+#!/usr/bin/sh
 
-#==============
-# Variables
-#==============
-dotfiles_dir=~/dotfiles
-
-#==============
-# Delete existing dot files and folders
-#==============
-sudo rm -rf ~/.vim > /dev/null 2>&1
-sudo rm -rf ~/.vimrc > /dev/null 2>&1
-
-sudo rm -rf ~/.shell /dev/null 2>&1
-sudo rm -rf ~/.zsh> /dev/null 2>&1
-sudo rm -rf ~/.zshrc> /dev/null 2>&1
-
-sudo rm -rf ~/.irssi> /dev/null 2>&1
-sudo rm -rf ~/.jupyther> /dev/null 2>&1
-
-sudo rm -rf ~/.gitconf> /dev/null 2>&1
-sudo rm -rf ~/.gitignore_global> /dev/null 2>&1
-sudo rm -rf ~/.inputrc> /dev/null 2>&1
-sudo rm -rf ~/.tmux.conf> /dev/null 2>&1
+DOTFILES_DIR=$(pwd)
 
 #==============
 # Create symlinks in the home folder
 # Allow overriding with files of matching names in the custom-configs dir
 #==============
-ln -sf $dotfiles_dir/vim ~/.vim
-ln -sf $dotfiles_dir/vimrc ~/.vimrc
+cp -r ~/.config/* $DOTFILES_DIR/config
+rm -rf ~/.config
+ln -s $DOTFILES_DIR/config ~/.config
 
-ln -sf $dotfiles_dir/shell ~/.shell
-ln -sf $dotfiles_dir/zsh ~/.zsh
-ln -sf $dotfiles_dir/zshrc ~/.zshrc
+rm -rf ~/.vim
+ln -s $DOTFILES_DIR/vim/ ~/.vim
 
-ln -sf $dotfiles_dir/irssi ~/.irssi
-ln -sf $dotfiles_dir/jupyter ~/.jupyter
+rm -rf ~/.vimrc
+ln -s $DOTFILES_DIR/vimrc ~/.vimrc
 
-ln -sf $dotfiles_dir/gitconfig ~/.gitconfig
-ln -sf $dotfiles_dir/gitignore_global ~/.gitignore_global
-ln -sf $dotfiles_dir/inputrc ~/.inputrc
-ln -sf $dotfiles_dir/tmux.conf ~/.tmux.conf
+rm -rf ~/.shell
+ln -s $DOTFILES_DIR/shell ~/.shell
+rm -rf ~/.zsh
+ln -s $DOTFILES_DIR/zsh ~/.zsh
 
+rm -rf ~/.gitconfig
+ln -s $DOTFILES_DIR/gitconfig ~/.gitconfig
+rm -rf ~/.gitignore_global
+ln -s $DOTFILES_DIR/gitignore_global ~/.gitignore_global
+rm -rf ~/.tmux.conf
+ln -s $DOTFILES_DIR/tmux.conf ~/.tmux.conf
+
+echo "Created symlinks"
+
+#==============
+# Install dein.vim for NEOVIM
+#==============
+curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh > installer.sh 
+sh ./installer.sh ~/.vim/dein 1>/dev/null
+rm installer.sh
+
+echo "Installed dein.vim"
+
+#==============
+# Install oh-my-zsh
+#==============
+sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
+rm -rf ~/.zshrc
+ln -s $DOTFILES_DIR/zshrc ~/.zshrc
 
