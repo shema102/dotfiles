@@ -31,13 +31,11 @@ ln -s $DOTFILES_DIR/tmux.conf ~/.tmux.conf
 echo "Created symlinks"
 
 #==============
-# Install dein.vim for NEOVIM
+# Install packer.nvim
 #==============
-curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh > installer.sh 
-sh ./installer.sh ~/.vim/dein 1>/dev/null
-rm installer.sh
-
-echo "Installed dein.vim"
+git clone --depth 1 https://github.com/wbthomason/packer.nvim\
+ ~/.local/share/nvim/site/pack/packer/start/packer.nvim
+echo "Installed packer.nvim"
 
 #==============
 # Install vim-plug for vim
