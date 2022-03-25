@@ -69,7 +69,7 @@ ZSH_THEME="muse"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git
-    archlinux
+#    archlinux
     #vi-mode
     )
 
@@ -121,3 +121,5 @@ source ~/.zsh/plugins_after.zsh
 cd ~
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk-17.0.2.jdk/Contents/Home"

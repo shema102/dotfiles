@@ -42,11 +42,10 @@ require('packer').startup(function(use)
 
   use 'hrsh7th/cmp-nvim-lsp'
   use 'hrsh7th/cmp-buffer'
-  -- use 'hrsh7th/nvim-cmp'
+  use 'hrsh7th/nvim-cmp'
   use 'hrsh7th/cmp-vsnip'
   -- use 'shaunsingh/nord.nvim'
   use 'onsails/lspkind-nvim'
-  use 'David-Kunz/cmp-npm'
   -- use 'tjdevries/colorbuddy.vim'
   -- use 'Th3Whit3Wolf/onebuddy'
   -- use 'navarasu/onedark.nvim'
@@ -230,10 +229,6 @@ map('n', '<leader>FF', ':Telescope grep_string<CR>')
 --     on_attach = on_attach
 --   }
 -- end
-
-
--- David-Kunz/cmp-npm
-require('cmp-npm').setup({ ignore = {"beta", "rc"} })
 
 -- hrsh7th/nvim-cmp
 local cmp = require'cmp'

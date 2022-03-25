@@ -33,3 +33,6 @@ export VIRTUALENVWRAPPER_VIRTUALENV=$(which virtualenv)
 export PATH="$PATH:/opt/android-studio/bin"
 export PATH="$PATH:$HOME/Android/Sdk/platform-tools"
 export ANDROID_SDK_ROOT="$HOME/Android/Sdk"
+
+# Init SDKMAN
+source $HOME/.sdkman/bin/sdkman-init.sh
