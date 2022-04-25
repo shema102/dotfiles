@@ -1,5 +1,5 @@
 # pip should only run if there is a virtualenv currently activated
-#export PIP_REQUIRE_VIRTUALENV=true
+export PIP_REQUIRE_VIRTUALENV=true
 
 #Explicitly specify locale
 export LC_ALL=en_US.UTF-8
@@ -24,10 +24,10 @@ export PATH="$PATH:$HOME/.local/bin"
 
 # Virtualenvwraper
 export WORKON_HOME=$HOME/.virtualenvs
-export PROJECT_HOME=$HOME/Devel
+export PROJECT_HOME=$HOME/Documents/Develop
 export VIRTUALENVWRAPPER_PYTHON=$(which python3)
 export VIRTUALENVWRAPPER_VIRTUALENV=$(which virtualenv)
-#source $(which virtualenvwrapper.sh)
+source $(which virtualenvwrapper.sh)
 
 # Export Android Studio folder
 export PATH="$PATH:/opt/android-studio/bin"
