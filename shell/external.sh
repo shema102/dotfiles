@@ -36,3 +36,7 @@ export ANDROID_SDK_ROOT="$HOME/Library/Android/sdk"
 
 # Init SDKMAN
 source $HOME/.sdkman/bin/sdkman-init.sh
+
+# Brew
+export PATH="$PATH:/opt/homebrew/bin"
+

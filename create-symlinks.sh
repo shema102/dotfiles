@@ -1,4 +1,4 @@
-#!/usr/bin/sh
+#!/bin/sh
 
 DOTFILES_DIR=$(pwd)
 
@@ -25,8 +25,6 @@ rm -rf ~/.gitconfig
 ln -s $DOTFILES_DIR/gitconfig ~/.gitconfig
 rm -rf ~/.gitignore_global
 ln -s $DOTFILES_DIR/gitignore_global ~/.gitignore_global
-rm -rf ~/.tmux.conf
-ln -s $DOTFILES_DIR/tmux.conf ~/.tmux.conf
 
 echo "Created symlinks"
 
@@ -36,14 +34,6 @@ echo "Created symlinks"
 git clone --depth 1 https://github.com/wbthomason/packer.nvim\
  ~/.local/share/nvim/site/pack/packer/start/packer.nvim
 echo "Installed packer.nvim"
-
-#==============
-# Install vim-plug for vim
-#==============
-curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
-    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-
-echo "Installed plug.vim. To update plugins run :PlugUpgrade"
 
 #==============
 # Install oh-my-zsh
