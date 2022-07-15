@@ -6,9 +6,9 @@ DOTFILES_DIR=$(pwd)
 # Create symlinks in the home folder
 # Allow overriding with files of matching names in the custom-configs dir
 #==============
-cp -r ~/.config/* $DOTFILES_DIR/config
-rm -rf ~/.config
-ln -s $DOTFILES_DIR/config ~/.config
+mkdir -p ~/.config
+rm -rf ~/.config/nvim
+ln -s $DOTFILES_DIR/config/nvim ~/.config/nvim
 
 rm -rf ~/.vim
 ln -s $DOTFILES_DIR/vim/ ~/.vim
