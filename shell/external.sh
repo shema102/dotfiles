@@ -1,5 +1,5 @@
 # pip should only run if there is a virtualenv currently activated
-export PIP_REQUIRE_VIRTUALENV=true
+#export PIP_REQUIRE_VIRTUALENV=true
 
 #Explicitly specify locale
 export LC_ALL=en_US.UTF-8
@@ -40,3 +40,4 @@ source $HOME/.sdkman/bin/sdkman-init.sh
 # Brew
 export PATH="$PATH:/opt/homebrew/bin"
 
+eval $(thefuck --alias)

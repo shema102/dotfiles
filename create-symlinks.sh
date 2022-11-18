@@ -29,11 +29,11 @@ ln -s $DOTFILES_DIR/gitignore_global ~/.gitignore_global
 echo "Created symlinks"
 
 #==============
-# Install packer.nvim
+# Install plug.nvim
 #==============
-git clone --depth 1 https://github.com/wbthomason/packer.nvim\
- ~/.local/share/nvim/site/pack/packer/start/packer.nvim
-echo "Installed packer.nvim"
+sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
+       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+echo "Installed plug.nvim"
 
 #==============
 # Install oh-my-zsh
