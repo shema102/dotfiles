@@ -51,14 +51,21 @@ vim.keymap.set("n", "<C-d>", "<C-d>zz")
 vim.keymap.set("x", "p", [["_dP]])
 
 -- yank to plus register
-vim.keymap.set({"n", "v"}, "<leader>y", [["+y]])
+vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
 vim.keymap.set("n", "<leader>Y", [["+Y]])
 
+-- paste from plus register
+vim.keymap.set({ "n", "v" }, "<leader>p", [["+p]])
+vim.keymap.set("n", "<leader>P", [["+P]])
+
 -- delete without yangking
-vim.keymap.set({"n", "v"}, "<leader>d", [["_d]])
+vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]])
 
 -- noop Q
 vim.keymap.set("n", "Q", "<nop>")
+
+-- buffer delete
+vim.keymap.set("n", "<leader>bd", ":bd<CR>")
 
 -- format whole file
 vim.keymap.set("n", "<leader>f", function()
@@ -102,6 +109,7 @@ require("lazy").setup({
   },
   "eandrju/cellular-automaton.nvim",
   "airblade/vim-gitgutter",
+  "rhysd/git-messenger.vim"
 })
 
 -- colorscheme
@@ -167,11 +175,23 @@ vim.keymap.set("n", "<leader>gs", ":GitGutterStageHunk<CR>", {})
 vim.keymap.set("n", "<leader>gw", ":GitGutterNextHunk<CR>", {})
 vim.keymap.set("n", "<leader>gW", ":GitGutterPrevHunk<CR>", {})
 
+-- git messenger
+vim.keymap.set("n", "<leader>gm", ":GitMessenger<CR>", {})
+
 -- undotree
 vim.keymap.set('n', '<leader>u', vim.cmd.UndotreeToggle, {})
 
 -- fugitive
 vim.keymap.set('n', '<leader>gs', vim.cmd.Git, {})
+vim.keymap.set('n', '<leader>gc', function()
+  vim.cmd.Git('commit')
+end, {})
+vim.keymap.set('n', '<leader>gsa', function()
+  vim.cmd.Git('add *')
+end, {})
+vim.keymap.set('n', '<leader>gp', function()
+  vim.cmd.Git('push')
+end, {})
 
 -- lsp
 local lsp = require('lsp-zero').preset({})
@@ -210,7 +230,12 @@ cmp.setup({
 })
 
 require("mason-lspconfig").setup {
-  ensure_installed = { "lua_ls", "rust_analyzer", "gopls", "tsserver", "eslint" },
+  ensure_installed = { "lua_ls",
+    "rust_analyzer",
+    "gopls",
+    "tsserver",
+    "eslint"
+  },
 }
 
 local lspconfig = require('lspconfig')
