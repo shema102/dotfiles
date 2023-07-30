@@ -33,6 +33,9 @@ vim.opt.scrolloff = 8
 
 vim.opt.updatetime = 50
 
+-- waiter for keymap
+vim.opt.timeoutlen = 2000
+
 -- allocate space for sign column and line numbers
 vim.opt.signcolumn = "yes:2"
 vim.opt.numberwidth = 1
@@ -170,7 +173,6 @@ vim.keymap.set("n", "<leader>mr", "<cmd>CellularAutomaton make_it_rain<CR>")
 -- gitgutter
 vim.keymap.set("n", "<leader>gh", ":GitGutterLineHighlightsToggle<CR>", {})
 vim.keymap.set("n", "<leader>gp", ":GitGutterPreviewHunk<CR>", {})
-vim.keymap.set("n", "<leader>gr", ":GitGutterResetHunk<CR>", {})
 vim.keymap.set("n", "<leader>gs", ":GitGutterStageHunk<CR>", {})
 vim.keymap.set("n", "<leader>gw", ":GitGutterNextHunk<CR>", {})
 vim.keymap.set("n", "<leader>gW", ":GitGutterPrevHunk<CR>", {})
@@ -183,11 +185,11 @@ vim.keymap.set('n', '<leader>u', vim.cmd.UndotreeToggle, {})
 
 -- fugitive
 vim.keymap.set('n', '<leader>gs', vim.cmd.Git, {})
-vim.keymap.set('n', '<leader>gc', function()
-  vim.cmd.Git('commit')
-end, {})
 vim.keymap.set('n', '<leader>gsa', function()
   vim.cmd.Git('add *')
+end, {})
+vim.keymap.set('n', '<leader>gc', function()
+  vim.cmd.Git('commit')
 end, {})
 vim.keymap.set('n', '<leader>gp', function()
   vim.cmd.Git('push')
