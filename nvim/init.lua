@@ -56,16 +56,12 @@ vim.keymap.set("n", "<C-d>", "<C-d>zz")
 -- preserve buffer on replace
 vim.keymap.set("x", "p", [["_dP]])
 
--- yank to plus register
+-- yank to system clipboard
 vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
-vim.keymap.set("n", "<leader>Y", [["+Y]])
-
--- paste from plus register
-vim.keymap.set({ "n", "v" }, "<leader>p", [["+p]])
-vim.keymap.set("n", "<leader>P", [["+P]])
 
 -- delete without yangking
-vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]])
+vim.keymap.set({ "n", "v" }, "<leader>d", '"_d')
+vim.keymap.set("n", "<leader>D", '"_D')
 
 -- noop Q
 vim.keymap.set("n", "Q", "<nop>")
@@ -174,8 +170,7 @@ require "nvim-treesitter.configs".setup {
 vim.keymap.set("n", "<leader>mr", "<cmd>CellularAutomaton make_it_rain<CR>")
 
 -- gitgutter
-vim.keymap.set("n", "<leader>gh", ":GitGutterLineHighlightsToggle<CR>", {})
-vim.keymap.set("n", "<leader>gp", ":GitGutterPreviewHunk<CR>", {})
+vim.keymap.set("n", "<leader>gh", ":GitGutterPreviewHunk<CR>", {})
 vim.keymap.set("n", "<leader>gw", ":GitGutterNextHunk<CR>", {})
 vim.keymap.set("n", "<leader>gW", ":GitGutterPrevHunk<CR>", {})
 
