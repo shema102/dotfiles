@@ -34,7 +34,7 @@ vim.opt.scrolloff = 8
 vim.opt.updatetime = 50
 
 -- allocate space for sign column and line numbers
-vim.opt.signcolumn = "yes"
+vim.opt.signcolumn = "yes:2"
 vim.opt.numberwidth = 1
 
 -- move highlited line in visual mode
@@ -101,6 +101,7 @@ require("lazy").setup({
     }
   },
   "eandrju/cellular-automaton.nvim",
+  "airblade/vim-gitgutter",
 })
 
 -- colorscheme
@@ -155,7 +156,16 @@ require "nvim-treesitter.configs".setup {
   },
 }
 
+-- vanity plugins
 vim.keymap.set("n", "<leader>mr", "<cmd>CellularAutomaton make_it_rain<CR>")
+
+-- gitgutter
+vim.keymap.set("n", "<leader>gh", ":GitGutterLineHighlightsToggle<CR>", {})
+vim.keymap.set("n", "<leader>gp", ":GitGutterPreviewHunk<CR>", {})
+vim.keymap.set("n", "<leader>gr", ":GitGutterResetHunk<CR>", {})
+vim.keymap.set("n", "<leader>gs", ":GitGutterStageHunk<CR>", {})
+vim.keymap.set("n", "<leader>gw", ":GitGutterNextHunk<CR>", {})
+vim.keymap.set("n", "<leader>gW", ":GitGutterPrevHunk<CR>", {})
 
 -- undotree
 vim.keymap.set('n', '<leader>u', vim.cmd.UndotreeToggle, {})
