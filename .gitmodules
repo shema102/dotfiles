@@ -1,9 +1,0 @@
-[submodule "vim/plugged/YCM-Generator"]
-	path = vim/plugged/YCM-Generator
-	url = https://github.com/rdnetto/YCM-Generator
-[submodule "vim/plugged/vim-monokai"]
-	path = vim/plugged/vim-monokai
-	url = https://github.com/sickill/vim-monokai.git
-[submodule "vim/plugged/coc.nvim"]
-	path = vim/plugged/coc.nvim
-	url = https://github.com/neoclide/coc.nvim.git
