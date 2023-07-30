@@ -173,7 +173,6 @@ vim.keymap.set("n", "<leader>mr", "<cmd>CellularAutomaton make_it_rain<CR>")
 -- gitgutter
 vim.keymap.set("n", "<leader>gh", ":GitGutterLineHighlightsToggle<CR>", {})
 vim.keymap.set("n", "<leader>gp", ":GitGutterPreviewHunk<CR>", {})
-vim.keymap.set("n", "<leader>gs", ":GitGutterStageHunk<CR>", {})
 vim.keymap.set("n", "<leader>gw", ":GitGutterNextHunk<CR>", {})
 vim.keymap.set("n", "<leader>gW", ":GitGutterPrevHunk<CR>", {})
 
@@ -185,8 +184,8 @@ vim.keymap.set('n', '<leader>u', vim.cmd.UndotreeToggle, {})
 
 -- fugitive
 vim.keymap.set('n', '<leader>gs', vim.cmd.Git, {})
-vim.keymap.set('n', '<leader>gsa', function()
-  vim.cmd.Git('add *')
+vim.keymap.set('n', '<leader>gfs', function() -- stage current file
+  vim.cmd.Git('add %')
 end, {})
 vim.keymap.set('n', '<leader>gc', function()
   vim.cmd.Git('commit')
