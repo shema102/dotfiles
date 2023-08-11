@@ -111,7 +111,9 @@ require("lazy").setup({
   },
   "eandrju/cellular-automaton.nvim",
   "airblade/vim-gitgutter",
-  "rhysd/git-messenger.vim"
+  "rhysd/git-messenger.vim",
+  "nvim-lualine/lualine.nvim",
+  "nvim-tree/nvim-web-devicons",
 })
 
 -- colorscheme
@@ -145,11 +147,23 @@ end, {})
 
 -- setup treesitter
 require "nvim-treesitter.configs".setup {
-  ensure_installed = { "c", "lua",
-    "vim", "vimdoc", "typescript",
+  ensure_installed = {
+    "c",
+    "lua",
+    "vim",
+    "vimdoc",
+    "typescript",
     "javascript",
-    "json", "yaml", "html",
-    "css", "bash", "go",
+    "json",
+    "yaml",
+    "html",
+    "css",
+    "bash",
+    "go",
+    "python",
+    "java",
+    "kotlin",
+    "groovy",
     "rust" },
 
   sync_install = false,
@@ -192,6 +206,23 @@ vim.keymap.set('n', '<leader>gp', function()
   vim.cmd.Git('push')
 end, {})
 
+-- lualine
+require('lualine').setup({
+  options = {
+    theme = 'ayu_mirage',
+    section_separators = '',
+    component_separators = '',
+  },
+  sections = {
+    lualine_a = { 'mode' },
+    lualine_b = { 'branch' },
+    lualine_c = { 'filename' },
+    lualine_x = { 'encoding', 'fileformat', 'filetype' },
+    lualine_y = { 'progress' },
+    lualine_z = { 'location' },
+  },
+})
+
 -- lsp
 local lsp = require('lsp-zero').preset({})
 
@@ -233,7 +264,10 @@ require("mason-lspconfig").setup {
     "rust_analyzer",
     "gopls",
     "tsserver",
-    "eslint"
+    "eslint",
+    "java-language-server",
+    "kotlin-language-server",
+    "groovy-language-server",
   },
 }
 
